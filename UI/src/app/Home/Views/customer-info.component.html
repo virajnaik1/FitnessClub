@@ -1,0 +1,133 @@
+<div class="margin-two-percentage" *ngIf="customerDetailsMasters != null">
+		<div style="width:100%;">
+			<table class="admin-step">
+				<tr>
+					<th>Date Of Birth</th>
+					<td><span [innerText]="customerDetailsMasters.dateOfBirth"></span></td>
+				</tr>
+				<tr>
+					<th>Height</th>
+					<td><span [innerText]="customerDetailsMasters.height"></span></td>
+				</tr>
+				<tr>
+					<th>What do you have at breakfast and what time?</th>
+					<td><span [innerText]="customerDetailsMasters.breakFastTime"></span></td>
+				</tr>
+				<tr>
+					<th>What do you have at lunch and what time?</th>
+					<td><span [innerText]="customerDetailsMasters.lunchFastTime"></span></td>
+				</tr>
+				<tr>
+					<th>What do you have at evening snacks?</th>
+					<td><span [innerText]="customerDetailsMasters.eveningSnacksTime"></span></td>
+				</tr>
+				<tr>
+					<th>What do you have at dinner and what time?</th>
+					<td><span [innerText]="customerDetailsMasters.dinnerTime"></span></td>
+				</tr>
+				<tr>
+					<th>When do you feel a craving?</th>
+					<td><span [innerText]="customerDetailsMasters.craving"></span></td>
+				</tr>
+				<tr>
+					<th>Do you have any food allergies or restrictions?</th>
+					<td><span [innerText]="customerDetailsMasters.foodAllergies"></span></td>
+				</tr>
+				<tr>
+					<th>Which food would not like to have as part of your meal suggestions?</th>
+					<td><span [innerText]="customerDetailsMasters.foodExclusive"></span></td>
+				</tr>
+				<tr>
+					<th>What is your food preference?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.foodPreference == 'vegWithoutEgg'">I am a strict vegetarian (No eggs)</span>
+						<span *ngIf="customerDetailsMasters.foodPreference == 'vegWithEgg'">I am a vegetarian but I can have eggs</span>
+						<span *ngIf="customerDetailsMasters.foodPreference == 'nonVeg'">I can have both veg and non-veg (including eggs and chicken)</span>
+					</td>
+				</tr>
+				<tr>
+					<th>How do you cook your meals?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.cookPreference == 'outsideMeal'">I mostly eat outside meals.</span>
+						<span *ngIf="customerDetailsMasters.cookPreference == 'homeMadeFood'">I always cook my own food at home</span>
+						<span *ngIf="customerDetailsMasters.cookPreference == 'mixPreference'">It's a mix. Home food and 1-2 meals outside</span>
+						<span *ngIf="customerDetailsMasters.cookPreference == 'weekendMixPreference'">I eat home cooked meals on weekdays and eat outside mostly on weekends.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>What kind of exercise have you been doing?</th>
+					<td><span [innerText]="customerDetailsMasters.typeOfExercise"></span></td>
+				</tr>
+				<tr>
+					<th>Do you suffer from any injuries?</th>
+					<td><span [innerText]="customerDetailsMasters.injuries"></span></td>
+				</tr>
+				<tr>
+					<th>Are you following any exercise routine currently?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.existingExerciseUser == 'neverUser'">No, I am not currently exercising.</span>
+						<span *ngIf="customerDetailsMasters.existingExerciseUser == 'regularUser'">Yes, I regularly exercise</span>
+						<span *ngIf="customerDetailsMasters.existingExerciseUser == 'notRegularUser'">I exercise but not regularly</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Do you have access to a gym?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.gymAccess == 'haveAccess'">Yes I have access and I am open to taking membership</span>
+						<span *ngIf="customerDetailsMasters.gymAccess == 'notHaveAccess'">No I do not have access to a gym</span>
+					</td>
+				</tr>
+				<tr>
+					<th>What kind of exercise do you prefer?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.exercisePreference == 'everything'">I am open to whatever you recommend</span>
+						<span *ngIf="customerDetailsMasters.exercisePreference == 'gymWorkout'">I like going to the gym so please plan gym workouts for me</span>
+						<span *ngIf="customerDetailsMasters.exercisePreference == 'homeWorkout'">I prefer only home workouts</span>
+						<span *ngIf="customerDetailsMasters.exercisePreference == 'outdoorWorkout'">I prefer outdoor exercises like running, outdoor HIIT...</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Do you consume alcohol?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.existingAlcoholUser == 'never'">No, I never consume alcohol</span>
+						<span *ngIf="customerDetailsMasters.existingAlcoholUser == 'weekends'">Yes, I have alcohol on weekends</span>
+						<span *ngIf="customerDetailsMasters.existingAlcoholUser == 'twiceAWeek'">I have alcohol more than twice a week</span>
+					</td>
+				</tr>
+				<tr>
+					<th>How is your energy levels throughout the day?</th>
+					<td>
+						<span *ngIf="customerDetailsMasters.energyLevel == 'fullEnergy'">I am energetic all through the day</span>
+						<span *ngIf="customerDetailsMasters.energyLevel == 'lowEnergyInEvening'">I feel good in the morning but tired/lethargic in the evenings</span>
+						<span *ngIf="customerDetailsMasters.energyLevel == 'lowEnergyInMorning'">Mornings are sluggish but by end of day I feel energetic</span>
+						<span *ngIf="customerDetailsMasters.energyLevel == 'lowEnergy'">I feel tired and lethargic mostly for the whole day</span>
+					</td>
+				</tr>
+				<tr>
+					<th>What are the times when you find yourself snacking on junk food the most?</th>
+					<td><span [innerText]="customerDetailsMasters.snackingTime"></span></td>
+				</tr>
+				<tr>
+					<th>When is the best time in the day when you can exercise?</th>
+					<td><span [innerText]="customerDetailsMasters.exercisePreferenceTime"></span></td>
+				</tr>
+				<tr>
+					<th>What is your food and exercise challenge?</th>
+					<td><span [innerText]="customerDetailsMasters.foodAndExercise"></span></td>
+				</tr>
+				<tr>
+					<th>Postal Address for us to send your shipment.</th>
+					<td><span [innerText]="customerDetailsMasters.postalAddress"></span></td>
+				</tr>
+				<tr>
+					<th>When is the best day and time to schedule calls?</th>
+					<td><span [innerText]="customerDetailsMasters.callDateAndTime"></span></td>
+				</tr>
+				<tr>
+					<th>Anything that you want us to know about yourself? Any additional information will only help us to plan your program better.</th>
+					<td><span [innerText]="customerDetailsMasters.extraInfo"></span></td>
+				</tr>
+			</table>
+			<br>
+		</div>
+	</div>

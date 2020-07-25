@@ -1,0 +1,45 @@
+<div>
+	<h2 class="section-title"></h2>
+	<div class="line center" *ngIf="submitted==false || registerForm.invalid">
+		<form [formGroup]="registerForm">
+			<fieldset>
+				<table class="form-style-1">
+					<tr>
+						<td colspan="2">
+							<div class="form-group">
+								<div>
+									<input type="text" class="new-form-control" id="inputUserName" name="inputUserName" placeholder="User Name" autofocus
+										formControlName="userName" required
+										[ngClass]="{ 'is-invalid': submitted && f().userName.errors }" style="width:100%;">
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="form-group">
+								<div>
+									<input type="password" class="new-form-control" id="inputPassword" name="inputPassword" placeholder="Password"
+										formControlName="password" required
+										[ngClass]="{ 'is-invalid': submitted && f().password.errors }" style="width:100%;">
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+				        <td>
+					    	<div class="form-group right">
+								<button type="button" (click)="onSubmit()" class="btn btn-success">Login</button>
+							</div>
+						</td>
+						<td>
+					    	<div class="form-group">
+								<button type="reset" routerLink="" class="btn btn-danger">Cancel</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+</div>

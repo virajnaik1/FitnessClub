@@ -1,0 +1,13 @@
+<html>
+<body style="width:60%;background-color:white;">
+    <h3>Hi ${firstName},</h3>
+    <h4>It was nice speaking with you!</h4>
+    <p>These are the two things we need before we get started:</p>
+    <p>1. Detailed analysis form: Please click on the form to open it and fill as many details as possible so that I am able to design a good plan for you.</p>
+    <a href='http://localhost:4200/customerDetails?cust_id=+${customerId}+'>Click here to fill the form</a>
+    <br><br>
+    <p>2. Online Payment: Please click on the link to pay our program fees online.</p>
+    <a href='${paymentLink}'>Click here to pay</a>
+    <p>Once both the things are in place, we will get started right away!</p>
+</body>
+</html>

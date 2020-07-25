@@ -1,0 +1,408 @@
+<div id="upcoming-tours">
+	<h2 class="section-title"></h2>
+	<div class="line wpforms-container-full" *ngIf="submitted==false || registerForm.invalid">
+		<form class="wpforms-form" [formGroup]="registerForm">
+		    <fieldset>
+		    	<table class="form-style-1">
+		    		<tr>
+		    			<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputFirstName" name="inputFirstName" placeholder="First Name" autofocus 
+					                formControlName="firstName" readonly="true" [ngClass]="{ 'is-invalid': submitted && f().firstName.errors }">
+					            </div>
+					        </div>
+				        </td>
+				        <td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputLastName" name="inputLastName" placeholder="Last Name"
+					                formControlName="lastName" readonly="true" required [ngClass]="{ 'is-invalid': submitted && f().lastName.errors }">
+					            </div>
+					        </div>
+				        </td>
+			        </tr>
+			        <tr>
+			        	<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="date" class="new-form-control" id="inputDateOfBirth" name="inputAddress"
+					                formControlName="dateOfBirth" required [ngClass]="{ 'is-invalid': submitted && f().dateOfBirth.errors }">
+					                <div *ngIf="submitted && f().dateOfBirth.errors" class="invalid-feedback">
+                        				<div *ngIf="f().dateOfBirth.errors.required">Date of Birth is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputHeight" name="inputHeight" placeholder="Heigth eg. 5 ft 3 inches OR 155 cms" 
+					                formControlName="height" required [ngClass]="{ 'is-invalid': submitted && f().height.errors }">
+					                <div *ngIf="submitted && f().height.errors" class="invalid-feedback">
+                        				<div *ngIf="f().height.errors.required">Height is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+			        </tr>
+			        <tr>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputBreakFastTime" name="inputBreakFastTime" placeholder="What do you have at breakfast and what time?" 
+					                formControlName="breakFastTime" required [ngClass]="{ 'is-invalid': submitted && f().breakFastTime.errors }">
+					                <div *ngIf="submitted && f().breakFastTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().breakFastTime.errors.required">Breakfast time is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputLunchFastTime" name="inputLunchFastTime" placeholder="What do you have at lunch and what time?" 
+					                formControlName="lunchFastTime" required [ngClass]="{ 'is-invalid': submitted && f().lunchFastTime.errors }">
+					                <div *ngIf="submitted && f().lunchFastTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().lunchFastTime.errors.required">Lunch time is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+			        </tr>  
+					<tr>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text"  class="new-form-control" id="inputEveningSnacksTime" name="inputEveningSnacksTime"  placeholder="What do you have at evening snacks?"
+					                formControlName="eveningSnacksTime" required [ngClass]="{ 'is-invalid': submitted && f().eveningSnacksTime.errors }">
+					                <div *ngIf="submitted && f().eveningSnacksTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().eveningSnacksTime.errors.required">Evening snacks time is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputDinnerTime" name="inputDinnerTime"  placeholder="What do you have at dinner and what time?"
+					                formControlName="dinnerTime" required [ngClass]="{ 'is-invalid': submitted && f().dinnerTime.errors }">
+					                <div *ngIf="submitted && f().dinnerTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().dinnerTime.errors.required">Dinner time is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>   
+					<tr>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputCraving" name="inputCraving"  placeholder="When do you feel a craving?"
+					                formControlName="craving" required [ngClass]="{ 'is-invalid': submitted && f().craving.errors }">
+					                <div *ngIf="submitted && f().craving.errors" class="invalid-feedback">
+                        				<div *ngIf="f().craving.errors.required">Craving field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputFoodAllergies" name="inputFoodAllergies"  placeholder="Do you have any food allergies or restrictions?"
+					                formControlName="foodAllergies" required [ngClass]="{ 'is-invalid': submitted && f().foodAllergies.errors }">
+					                <div *ngIf="submitted && f().foodAllergies.errors" class="invalid-feedback">
+                        				<div *ngIf="f().foodAllergies.errors.required">Food allergies are required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>  
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					            	<textarea rows="1" cols="80" class="new-form-control" id="inputFoodExclusive" name="inputFoodExclusive"  placeholder="Which food would not like to have as part of your meal suggestions?"
+					                formControlName="foodExclusive" required [ngClass]="{ 'is-invalid': submitted && f().foodExclusive.errors }">
+					                </textarea>
+					                <div *ngIf="submitted && f().foodExclusive.errors" class="invalid-feedback">
+                        				<div *ngIf="f().foodExclusive.errors.required">This Field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr> 
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>What is your food preference?</b></p>
+					                <input type="radio" id="vegWithoutEgg" name="foodPreference" value="vegWithoutEgg" formControlName="foodPreference" 
+					                	required [ngClass]="{ 'is-invalid': submitted && f().foodPreference.errors }">
+									<label for="male"> &nbsp; I am a strict vegetarian (No eggs)</label><br>
+									<input type="radio" id="vegWithEgg" name="foodPreference" value="vegWithEgg" formControlName="foodPreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().foodPreference.errors }">
+									<label for="female">&nbsp; I am a vegetarian but I can have eggs</label><br>
+									<input type="radio" id="nonVeg" name="foodPreference" value="nonVeg" formControlName="foodPreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().foodPreference.errors }">
+									<label for="female">&nbsp;  I can have both veg and non-veg (including eggs and chicken)</label>
+									<div *ngIf="submitted && f().foodPreference.errors" class="invalid-feedback">
+                        				<div *ngIf="f().foodPreference.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>How do you cook your meals?</b></p>
+					                <input type="radio" id="outsideMeal" name="cookPreference" value="outsideMeal" formControlName="cookPreference"
+					                	required [ngClass]="{ 'is-invalid': submitted && f().cookPreference.errors }">
+									<label for="male"> &nbsp; I mostly eat outside meals.</label><br>
+									<input type="radio" id="homeMadeFood" name="cookPreference" value="homeMadeFood" formControlName="cookPreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().cookPreference.errors }">
+									<label for="female">&nbsp; I always cook my own food at home</label><br>
+									<input type="radio" id="mixPreference" name="cookPreference" value="mixPreference" formControlName="cookPreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().cookPreference.errors }">
+									<label for="female">&nbsp; It's a mix. Home food and 1-2 meals outside</label><br>
+									<input type="radio" id="weekendMixPreference" name="cookPreference" value="weekendMixPreference" formControlName="cookPreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().cookPreference.errors }">
+									<label for="female">&nbsp; I eat home cooked meals on weekdays and eat outside mostly on weekends.</label><br>
+									<div *ngIf="submitted && f().cookPreference.errors" class="invalid-feedback">
+                        				<div *ngIf="f().cookPreference.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputTypeOfExercise" name="inputTypeOfExercise"  placeholder="What kind of exercise have you been doing?"
+					                formControlName="typeOfExercise" required [ngClass]="{ 'is-invalid': submitted && f().typeOfExercise.errors }">
+					                <div *ngIf="submitted && f().typeOfExercise.errors" class="invalid-feedback">
+                        				<div *ngIf="f().typeOfExercise.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputInjuries" name="inputInjuries"  placeholder="Do you suffer from any injuries?"
+					                formControlName="injuries" required [ngClass]="{ 'is-invalid': submitted && f().injuries.errors }">
+					                <div *ngIf="submitted && f().injuries.errors" class="invalid-feedback">
+                        				<div *ngIf="f().injuries.errors.required">This field are required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr> 
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>Are you following any exercise routine currently?</b></p>
+					                <input type="radio" id="neverUser" name="existingExerciseUser" value="neverUser" formControlName="existingExerciseUser"
+					                	required [ngClass]="{ 'is-invalid': submitted && f().existingExerciseUser.errors }">
+									<label for="male"> &nbsp;No, I am not currently exercising</label><br>
+									<input type="radio" id="regularUser" name="existingExerciseUser" value="regularUser" formControlName="existingExerciseUser"
+										required [ngClass]="{ 'is-invalid': submitted && f().existingExerciseUser.errors }">
+									<label for="female">&nbsp;Yes, I regularly exercise</label><br>
+									<input type="radio" id="notRegularUser" name="existingExerciseUser" value="notRegularUser" formControlName="existingExerciseUser"
+										required [ngClass]="{ 'is-invalid': submitted && f().existingExerciseUser.errors }">
+									<label for="other">&nbsp;I exercise but not regularly</label>
+									<div *ngIf="submitted && f().existingExerciseUser.errors" class="invalid-feedback">
+                        				<div *ngIf="f().existingExerciseUser.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr> 
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>Do you have access to a gym?</b></p>
+					                <input type="radio" id="haveAccess" name="gymAccess" value="haveAccess" formControlName="gymAccess"
+					                	required [ngClass]="{ 'is-invalid': submitted && f().gymAccess.errors }">
+									<label for="male"> &nbsp;Yes I have access and I am open to taking membership</label><br>
+									<input type="radio" id="notHaveAccess" name="gymAccess" value="notHaveAccess" formControlName="gymAccess"
+										required [ngClass]="{ 'is-invalid': submitted && f().gymAccess.errors }">
+									<label for="female">&nbsp;No I do not have access to a gym</label><br>
+									<div *ngIf="submitted && f().gymAccess.errors" class="invalid-feedback">
+                        				<div *ngIf="f().gymAccess.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>What kind of exercise do you prefer?</b></p>
+					                <input type="radio" id="everything" name="exercisePreference" value="everything" formControlName="exercisePreference"
+					                	required [ngClass]="{ 'is-invalid': submitted && f().exercisePreference.errors }">
+									<label for="male"> &nbsp;I am open to whatever you recommend</label><br>
+									<input type="radio" id="gymWorkout" name="exercisePreference" value="gymWorkout" formControlName="exercisePreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().exercisePreference.errors }">
+									<label for="female">&nbsp;I like going to the gym so please plan gym workouts for me</label><br>
+									<input type="radio" id="homeWorkout" name="exercisePreference" value="homeWorkout" formControlName="exercisePreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().exercisePreference.errors }">
+									<label for="female">&nbsp;I prefer only home workouts</label><br>
+									<input type="radio" id="outdoorWorkout" name="exercisePreference" value="outdoorWorkout" formControlName="exercisePreference"
+										required [ngClass]="{ 'is-invalid': submitted && f().exercisePreference.errors }">
+									<label for="female">&nbsp;I prefer outdoor exercises like running, outdoor HIIT...</label><br>
+									<div *ngIf="submitted && f().exercisePreference.errors" class="invalid-feedback">
+                        				<div *ngIf="f().exercisePreference.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>Do you consume alcohol?</b></p>
+					                <input type="radio" id="never" name="existingAlcoholUser" value="never" formControlName="existingAlcoholUser"
+					                	required [ngClass]="{ 'is-invalid': submitted && f().existingAlcoholUser.errors }">
+									<label for="male"> &nbsp;No, I never consume alcohol</label><br>
+									<input type="radio" id="weekends" name="existingAlcoholUser" value="weekends" formControlName="existingAlcoholUser"
+										required [ngClass]="{ 'is-invalid': submitted && f().existingAlcoholUser.errors }">
+									<label for="female">&nbsp;Yes, I have alcohol on weekends</label><br>
+									<input type="radio" id="twiceAWeek" name="existingAlcoholUser" value="twiceAWeek" formControlName="existingAlcoholUser"
+										required [ngClass]="{ 'is-invalid': submitted && f().existingAlcoholUser.errors }">
+									<label for="other">&nbsp;I have alcohol more than twice a week</label>
+									<div *ngIf="submitted && f().existingAlcoholUser.errors" class="invalid-feedback">
+                        				<div *ngIf="f().existingAlcoholUser.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr> 
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <p><b>How is your energy levels throughout the day?</b></p>
+					                <input type="radio" id="fullEnergy" name="energyLevel" value="fullEnergy" formControlName="energyLevel"
+					                	required [ngClass]="{ 'is-invalid': submitted && f().energyLevel.errors }">
+									<label for="male"> &nbsp;I am energetic all through the day</label><br>
+									<input type="radio" id="lowEnergyInEvening" name="energyLevel" value="lowEnergyInEvening" formControlName="energyLevel"
+										required [ngClass]="{ 'is-invalid': submitted && f().energyLevel.errors }">
+									<label for="female">&nbsp;I feel good in the morning but tired/lethargic in the evenings</label><br>
+									<input type="radio" id="lowEnergyInMorning" name="energyLevel" value="lowEnergyInMorning" formControlName="energyLevel"
+										required [ngClass]="{ 'is-invalid': submitted && f().energyLevel.errors }">
+									<label for="female">&nbsp;Mornings are sluggish but by end of day I feel energetic</label><br>
+									<input type="radio" id="lowEnergy" name="energyLevel" value="lowEnergy" formControlName="energyLevel"
+										required [ngClass]="{ 'is-invalid': submitted && f().energyLevel.errors }">
+									<label for="female">&nbsp;I feel tired and lethargic mostly for the whole day</label><br>
+									<div *ngIf="submitted && f().energyLevel.errors" class="invalid-feedback">
+                        				<div *ngIf="f().energyLevel.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputSnackingTime" name="inputSnackingTime"  placeholder="What are the times when you find yourself snacking on junk food the most?"
+					                formControlName="snackingTime" required [ngClass]="{ 'is-invalid': submitted && f().snackingTime.errors }">
+					                <div *ngIf="submitted && f().snackingTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().snackingTime.errors.required">This Field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputExercisePreferenceTime" name="inputExercisePreferenceTime"  placeholder="When is the best time in the day when you can exercise?"
+					                formControlName="exercisePreferenceTime" required [ngClass]="{ 'is-invalid': submitted && f().exercisePreferenceTime.errors }">
+					                <div *ngIf="submitted && f().exercisePreferenceTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().exercisePreferenceTime.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					            	<textarea rows="1" cols="80" class="new-form-control" id="inputFoodAndExercise" name="inputFoodAndExercise"  placeholder="What is your food and exercise challenge?"
+					                formControlName="foodAndExercise" required [ngClass]="{ 'is-invalid': submitted && f().foodAndExercise.errors }">
+					                </textarea>
+					                <div *ngIf="submitted && f().foodAndExercise.errors" class="invalid-feedback">
+                        				<div *ngIf="f().foodAndExercise.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr> 
+					<tr>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputPostalAddress" name="inputPostalAddress"  placeholder="Postal Address for us to send your shipment."
+					                formControlName="postalAddress" required [ngClass]="{ 'is-invalid': submitted && f().postalAddress.errors }">
+					                <div *ngIf="submitted && f().postalAddress.errors" class="invalid-feedback">
+                        				<div *ngIf="f().postalAddress.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+						<td>
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <input type="text" class="new-form-control" id="inputCallDateAndTime" name="inputCallDateAndTime"  placeholder="When is the best day and time to schedule calls?"
+					                formControlName="callDateAndTime" required [ngClass]="{ 'is-invalid': submitted && f().callDateAndTime.errors }">
+					                <div *ngIf="submitted && f().callDateAndTime.errors" class="invalid-feedback">
+                        				<div *ngIf="f().callDateAndTime.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr> 
+					<tr>
+						<td colspan="2">
+					        <div class="form-group">
+					            <div class="col-lg-10">
+					                <textarea rows="3" cols="80" class="new-form-control" id="inputExtraInformation" name="inputExtraInformation"  placeholder="Anything that you want us to know about yourself? Any additional information will only help us to plan your program better."
+					                formControlName="extraInfo" required [ngClass]="{ 'is-invalid': submitted && f().extraInfo.errors }">
+					                </textarea>
+					                <div *ngIf="submitted && f().extraInfo.errors" class="invalid-feedback">
+                        				<div *ngIf="f().extraInfo.errors.required">This field is required</div>
+                    				</div>
+					            </div>
+					        </div>
+						</td>
+					</tr>      
+			        <tr>
+			        	<td>
+				        	<div class="form-group">
+						    	<div class="col-lg-10 col-lg-offset-2">
+						    		<button type="button" (click)="onSubmit()" class="btn btn-success">Confirm</button>
+						    	</div>
+							</div>
+						</td>
+						<td>
+				        	<div class="form-group">
+						    	<div class="col-lg-10 col-lg-offset-2">
+						    		<button type="reset" routerLink="/home" class="btn btn-danger">Cancel</button>
+						    	</div>
+							</div>
+						</td>
+			        </tr>
+		        </table>
+		    </fieldset>
+		</form>
+	</div>
+</div>

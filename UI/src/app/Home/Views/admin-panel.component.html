@@ -1,0 +1,97 @@
+<h2 class="section-title"></h2>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Sections</div>
+      <div class="list-group list-group-flush">
+        <a  (click)="deSelectInquiry()" class="list-group-item list-group-item-action bg-light">Customer</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <div class="container-fluid" *ngIf="!isSelectedData">
+        <h2 class="mt-10">Customer</h2>
+        <ag-grid-angular
+		    style="width: 100%; height: 500px;"
+		    class="ag-theme-alpine"
+		    [rowData]="inquiryMasters"
+		    [columnDefs]="columnDefs"
+		    [defaultColDef]="defaultColDef"
+		    (rowClicked)="onRowClicked($event)">
+		</ag-grid-angular>
+      </div>
+      <div *ngIf="isSelectedData">
+			<div class="row">
+				<div class="card xs-8 s-8 m-8 l-8 xl-8">
+					<div class="steps-form">
+						<div class="steps-row setup-panel">
+					        <div class="steps-step">
+					          <a href="#step-9" type="button" class="btn btn-default btn-circle">1</a>
+					          <p>Step 1: Information</p>
+					        </div>
+					        <div class="steps-step">
+					          <a href="#step-10" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+					          <p>Step 2: Call</p>
+					        </div>
+					        <div class="steps-step">
+					          <a href="#step-11" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+					          <p>Step 3: Plan</p>
+					        </div>
+					        <div class="steps-step">
+					          <a href="#step-11" type="button" class="btn btn-default btn-circle waves-effect waves-light btn-indigo" disabled="disabled">4</a>
+					          <p>Step 4: Information and payment</p>
+					        </div>
+					      </div>
+				    </div>		
+				    <hr>	
+	      			<step1 [data]=inquiryService.inquiryMasters></step1>
+	      		</div>
+				<div style="margin-left: 2%; border: 1px black;" class="card xl-3 s-3 m-3 l-3 xl-3 right">
+					<br>
+					<h3 [innerText]="inquiryService.inquiryMasters.firstName+' '+inquiryService.inquiryMasters.lastName"></h3>
+					<br>
+					<table style="width:100%">
+						<tbody>
+							<tr>
+								<td><b>Current Status</b></td>
+							</tr>
+							<tr>
+								<td *ngIf="inquiryService.inquiryMasters.status=='N'"><span>New</span></td>
+								<td *ngIf="inquiryService.inquiryMasters.status=='R'"><span>Rejected</span></td>
+								<td *ngIf="inquiryService.inquiryMasters.status=='L'"><span>Payment link send</span></td>
+								<td *ngIf="inquiryService.inquiryMasters.status=='D'"><span>In discussion</span></td>
+								<td *ngIf="inquiryService.inquiryMasters.status=='A'"><span>Accepted</span></td>
+								<td *ngIf="inquiryService.inquiryMasters.status=='J'"><span>Called-Joining Program</span></td>
+								<td *ngIf="inquiryService.inquiryMasters.status=='P'"><span>Payment Received</span></td>
+							</tr>
+							<tr>
+								<td><b>Mobile Number</b></td>
+							</tr>
+							<tr>
+								<td><span [innerText]="inquiryService.inquiryMasters.phoneNo"></span></td>
+							</tr>
+							<tr>
+								<td><b>Email</b></td>
+							</tr>
+							<tr>
+								<td><span [innerText]="inquiryService.inquiryMasters.emailId"></span></td>
+							</tr>
+							<tr>
+								<td><b>Height</b></td>
+							</tr>
+							<tr>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->

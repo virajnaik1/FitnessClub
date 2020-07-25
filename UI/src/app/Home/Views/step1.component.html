@@ -1,0 +1,127 @@
+<div class="margin-two-percentage">
+	<div *ngIf="inquiryMasters.status=='N'">
+		<b>Step 1:</b>
+		<br>
+		There are 3 options in Step 1.
+		<ul>
+			<li>Option 1: Accept - A WhatsApp Message is sent to the client with a request to have a video call.</li>
+			<li>Option 2: Reject - You can reject a client & no communication is sent to the client.</li>
+			<li>Option 3: Ignore - You can currently ignore the customer & can contact him later.</li>
+		</ul>
+		<div style="width:100%;">
+			<table class="admin-step">
+				<tr>
+					<th>Phone</th>
+					<td><span [innerText]="inquiryMasters.phoneNo"></span></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><span [innerText]="inquiryMasters.emailId"></span></td>
+				</tr>
+				<tr>
+					<th>Instagram</th>
+					<td><span [innerText]="inquiryMasters.instagram"></span></td>
+				</tr>
+				<tr>
+					<th>What made you apply here? What do you want to achieve?</th>
+					<td><span [innerText]="inquiryMasters.goal"></span></td>
+				</tr>
+				<tr>
+					<th>What is stopping you from achieving your weight loss goal right now?</th>
+					<td><span [innerText]="inquiryMasters.weakness"></span></td>
+				</tr>
+				<tr>
+					<th>How serious are you about weight loss and a body transformation right now?</th>
+					<td>
+						<span *ngIf="inquiryMasters.seriousness == 'notserious'">I am not very serious right now, I am just gathering information.</span>
+						<span *ngIf="inquiryMasters.seriousness == 'serious'">I am seriously interested and I want to start as soon as possible.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>To achieve a healthy and sustainable result in this program, we recommend the use of Herbalife Nutrition during the course of this program. Are you ok with this?</th>
+					<td>
+						<span *ngIf="inquiryMasters.nutrition == 'oknutrition'">Yes I am ok with using Herbalife Nutrition to get best results.</span>
+						<span *ngIf="inquiryMasters.nutrition == 'notOknutrition'">No I do not want to use Herbalife Nutrition..</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Have you used Herbalife Nutrition before?</th>
+					<td>
+						<span *ngIf="inquiryMasters.existingNutritionUser == 'currentUser'">Yes, I am currently using Herbalife Nutrition from another coach.</span>
+						<span *ngIf="inquiryMasters.existingNutritionUser == 'pastUser'">I have used Herbalife Nutrition in the past. I am currently not on the program.</span>
+						<span *ngIf="inquiryMasters.existingNutritionUser == 'neverUser'">I have never used Herbalife Nutrition before.</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Taking action is the ONLY way to achieve results. Before we set up a call with you, we would like to know which program you would like to take.</th>
+					<td>
+						<span *ngIf="inquiryMasters.nutritionPackage == 'trialPackage'">15 days Trial Pack: Rs. 3700/-</span>
+						<span *ngIf="inquiryMasters.nutritionPackage == 'fourWeekPackage'">4 Week Weight Loss Program: Rs.5900/-</span>
+						<span *ngIf="inquiryMasters.nutritionPackage == 'twelveWeekPackage'">12 Week Weight Loss + Fitness Plan: 15,900/- (Body Transformation Program)</span>
+					</td>
+				</tr>
+				<tr>
+					<th>Would you like to share anything else about your lifestyle or preferences with me?</th>
+					<td><span [innerText]="inquiryMasters.extraInfo"></span></td>
+				</tr>
+			</table>
+			<br>
+			<div>
+				<button type="submit" class="btn btn-success" name="step1" value="accept" (click)="acceptLead()"><i class="feather icon-check"></i>Accept</button>&nbsp;
+				<button *ngIf="inquiryMasters.status=='N'" type="submit" class="btn btn-primary" name="step1" value="discuss" (click)="startDiscussion()">Discuss</button>&nbsp;
+				<button type="submit" class="btn btn-danger" name="step1" value="ignore" (click)="rejectLead()"><i class="feather icon-x-circle"></i>Reject</button>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="inquiryMasters.status=='A'">
+		<b>Step 2:</b>
+		<br>
+		<p>
+			This is where your first one-on-one call happens with your customer. 
+			There are currently 2 options after this step, the customer has agreed to join the program or decided to opt out. You can mark the status here.
+		</p>
+		<p>
+			There is space below to write your comments regarding this call. This information will be saved at both options - Joining / Rejected. Feel free to write your observations / comments on why the client accepted or rejected joining the programme.
+		</p>
+		<textarea rows="2" cols="80" class="new-form-control" id="inputWeakness" name="inputWeakness"  placeholder="Please write your thoughts on how this call went."></textarea>
+		<div>
+				<button type="submit" class="btn btn-success" name="step1" value="accept" (click)="joining()"><i class="feather icon-check"></i>Joining:Proceed to select plan</button>&nbsp;
+				<button type="submit" class="btn btn-danger" name="step1" value="discuss" (click)="rejectLead()">Rejected:Lead terminated here</button>&nbsp;
+		</div>
+	</div>	
+	<div *ngIf="inquiryMasters.status=='J'">
+		<b>Step 3:</b>
+		<br>
+		<p>
+			This is where your select plan as per customers choice. 
+			This step will send mail to customer with form and payment link.
+		</p>
+		<input type="radio" id="trialPackage" name="nutritionPackage" value="trialPackage" [(ngModel)]="package">
+		<label for="male"> &nbsp;15 days Trial Pack: Rs. 3700/-</label><br>
+		<input type="radio" id="fourWeekPackage" name="nutritionPackage" value="fourWeekPackage" [(ngModel)]="package">
+		<label for="female">&nbsp;4 Week Weight Loss Program: Rs.5900/-</label><br>
+		<input type="radio" id="twelveWeekPackage" name="nutritionPackage" value="twelveWeekPackage" [(ngModel)]="package">
+		<label for="other">12 Week Weight Loss + Fitness Plan: 15,900/- (Body Transformation Program)</label>
+		<div>
+				<button type="submit" class="btn btn-success" name="step1" value="accept" (click)="sendPaymentLink()"><i class="feather icon-check"></i>Send payment link</button>&nbsp;
+				<button type="submit" class="btn btn-danger" name="step1" value="discuss" (click)="rejectLead()">Rejected</button>&nbsp;
+		</div>
+	</div>
+	<div *ngIf="inquiryMasters.status=='L'">
+		<b>Step 4:</b>
+		<br>
+		<p>
+			In step 4, we get to see the detailed information form the customer has filled & weather we have received their payment. 
+			You will be able to manually send reminder message if either of them is unfulfilled.
+		</p>
+		<div>
+			<button type="submit" class="btn btn-success" name="step1" value="accept" (click)="markAsPaid()"><i class="feather icon-check"></i>Mark as Paid</button>&nbsp;
+		</div>
+		<cust-info></cust-info>
+	</div>
+	<div *ngIf="inquiryMasters.status=='P'">
+		<br>
+		<b>Payment received from customer</b>
+		<cust-info></cust-info>
+	</div>		
+</div>

@@ -1,0 +1,174 @@
+<div>
+	<h2 class="section-title"></h2>
+	<div class="line" *ngIf="submitted==false || registerForm.invalid">
+		<form [formGroup]="registerForm">
+		    <fieldset>
+		    	<table class="form-style-1">
+					<tr>
+						<td>
+							<div class="form-group">
+								<input type="text" class="new-form-control" id="inputFirstName" name="inputFirstName" placeholder="First Name" autofocus 
+									formControlName="firstName" required [ngClass]="{ 'is-invalid': submitted && f().firstName.errors }">
+								    <div *ngIf="submitted && f().firstName.errors" class="invalid-feedback">
+			                        	<div *ngIf="f().firstName.errors.required">First Name is required</div>
+			                    	</div>
+							</div>
+						</td>
+						<td>
+							<div class="form-group">
+								<div>
+									<input type="text" class="new-form-control" id="inputLastName" name="inputLastName" placeholder="Last Name"
+					    				formControlName="lastName" required [ngClass]="{ 'is-invalid': submitted && f().lastName.errors }">
+										<div *ngIf="submitted && f().lastName.errors" class="invalid-feedback">
+				                        	<div *ngIf="f().lastName.errors.required">Last Name is required</div>
+				                    	</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-group">
+								<input type="text" class="new-form-control" id="inputAddress" name="inputAddress" placeholder="Address"
+					               	formControlName="address" required [ngClass]="{ 'is-invalid': submitted && f().address.errors }">
+									<div *ngIf="submitted && f().address.errors" class="invalid-feedback">
+		                        		<div *ngIf="f().address.errors.required">Address is required</div>
+		                    		</div>
+							</div>
+						</td>
+						<td>
+							<div class="form-group">
+								<input type="text" class="new-form-control" id="inputPhone" name="inputPhone" placeholder="Mobile / Whatsapp Number" 
+					               	formControlName="phoneNo" required [ngClass]="{ 'is-invalid': submitted && f().phoneNo.errors }">
+									<div *ngIf="submitted && f().phoneNo.errors" class="invalid-feedback">
+			                        	<div *ngIf="f().phoneNo.errors.required">Mobile no is required</div>
+			                    	</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-group">
+								 <input type="text" class="new-form-control" id="inputEmail" name="inputEmail" placeholder="Email-Id"
+					                formControlName="emailId" required [ngClass]="{ 'is-invalid': submitted && f().emailId.errors }">
+								<div *ngIf="submitted && f().emailId.errors" class="invalid-feedback">
+                        			<div *ngIf="f().emailId.errors.required">Email-Id is required</div>
+                    			</div>
+							</div>
+						</td>
+						<td>
+							<div class="form-group">
+								<input type="text" class="new-form-control" id="inputInstagram" name="inputInstagram" placeholder="Instagram" 
+					                formControlName="instagram" required [ngClass]="{ 'is-invalid': submitted && f().instagram.errors }">
+					                <div *ngIf="submitted && f().instagram.errors" class="invalid-feedback">
+                        				<div *ngIf="f().instagram.errors.required">Instagram Id is required</div>
+                    				</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="text" class="new-form-control" id="inputGoal" name="inputGoal"  placeholder="What made you apply here? What do you want to achieve?"
+					                formControlName="goal" required [ngClass]="{ 'is-invalid': submitted && f().goal.errors }">
+					        <div *ngIf="submitted && f().goal.errors" class="invalid-feedback">
+                        		<div *ngIf="f().goal.errors.required">Goals are required</div>
+                    		</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="text" class="new-form-control" id="inputWeakness" name="inputWeakness"  placeholder="What is stopping you from achieving your weight loss goal right now?"
+					                formControlName="weakness" required [ngClass]="{ 'is-invalid': submitted && f().weakness.errors }">
+			                <div *ngIf="submitted && f().weakness.errors" class="invalid-feedback">
+        						<div *ngIf="f().weakness.errors.required">Weakness is required</div>
+                    		</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<p><b>How serious are you about weight loss and a body transformation right now?</b></p>
+							<input type="radio" id="serious" name="seriousness" value="serious" formControlName="seriousness" 
+					               	required [ngClass]="{ 'is-invalid': submitted && f().seriousness.errors }">
+							<label for="male"> &nbsp;I am seriously interested and I want to start as soon as possible.</label><br>
+							<input type="radio" id="notserious" name="seriousness" value="notserious" formControlName="seriousness"
+									required [ngClass]="{ 'is-invalid': submitted && f().seriousness.errors }">
+							<label for="female">&nbsp;I am not very serious right now, I am just gathering information.</label>
+							<div *ngIf="submitted && f().seriousness.errors" class="invalid-feedback">
+                        		<div *ngIf="f().seriousness.errors.required">This field is required</div>
+                    		</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<p><b>To achieve a healthy and sustainable result in this program, we recommend the use of Herbalife Nutrition during the course of this program. Are you ok with this?</b></p>
+					        <input type="radio" id="oknutrition" name="nutrition" value="oknutrition" formControlName="nutrition"
+					        	required [ngClass]="{ 'is-invalid': submitted && f().nutrition.errors }">
+							<label for="male"> &nbsp;Yes I am ok with using Herbalife Nutrition to get best results.</label><br>
+							<input type="radio" id="notOknutrition" name="nutrition" value="notOknutrition" formControlName="nutrition"
+								required [ngClass]="{ 'is-invalid': submitted && f().nutrition.errors }">
+							<label for="female">&nbsp;No I do not want to use Herbalife Nutrition..</label><br>
+							<div *ngIf="submitted && f().nutrition.errors" class="invalid-feedback">
+                        		<div *ngIf="f().nutrition.errors.required">This field is required</div>
+                    		</div>						
+                    	</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<p><b>Have you used Herbalife Nutrition before?</b></p>
+					        <input type="radio" id="currentUser" name="existingNutritionUser" value="currentUser" formControlName="existingNutritionUser"
+					        	required [ngClass]="{ 'is-invalid': submitted && f().existingNutritionUser.errors }">
+							<label for="male"> &nbsp;Yes, I am currently using Herbalife Nutrition from another coach.</label><br>
+							<input type="radio" id="pastUser" name="existingNutritionUser" value="pastUser" formControlName="existingNutritionUser"
+								required [ngClass]="{ 'is-invalid': submitted && f().existingNutritionUser.errors }">
+							<label for="female">&nbsp;I have used Herbalife Nutrition in the past. I am currently not on the program.</label><br>
+							<input type="radio" id="neverUser" name="existingNutritionUser" value="neverUser" formControlName="existingNutritionUser"
+								required [ngClass]="{ 'is-invalid': submitted && f().existingNutritionUser.errors }">
+							<label for="other">I have never used Herbalife Nutrition before.</label>
+							<div *ngIf="submitted && f().existingNutritionUser.errors" class="invalid-feedback">
+                        		<div *ngIf="f().existingNutritionUser.errors.required">This field is required</div>
+                    		</div>
+                    	</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<p><b>Taking action is the ONLY way to achieve results. Before we set up a call with you, we would like to know which program you would like to take.</b></p>
+							<input type="radio" id="trialPackage" name="nutritionPackage" value="trialPackage" formControlName="nutritionPackage"
+					        	required [ngClass]="{ 'is-invalid': submitted && f().nutritionPackage.errors }">
+							<label for="male"> &nbsp;15 days Trial Pack: Rs. 3700/-</label><br>
+							<input type="radio" id="fourWeekPackage" name="nutritionPackage" value="fourWeekPackage" formControlName="nutritionPackage"
+								required [ngClass]="{ 'is-invalid': submitted && f().nutritionPackage.errors }">
+							<label for="female">&nbsp;4 Week Weight Loss Program: Rs.5900/-</label><br>
+							<input type="radio" id="twelveWeekPackage" name="nutritionPackage" value="twelveWeekPackage" formControlName="nutritionPackage"
+								required [ngClass]="{ 'is-invalid': submitted && f().nutritionPackage.errors }">
+							<label for="other">12 Week Weight Loss + Fitness Plan: 15,900/- (Body Transformation Program)</label>
+							<div *ngIf="submitted && f().nutritionPackage.errors" class="invalid-feedback">
+                        		<div *ngIf="f().nutritionPackage.errors.required">This field is required</div>
+                    		</div>
+                    	</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="text" class="new-form-control" id="inputExtraInformation" name="inputExtraInformation"  placeholder="Would you like to share anything else about your lifestyle or preferences with me?"
+					                formControlName="extraInfo" required [ngClass]="{ 'is-invalid': submitted && f().extraInfo.errors }">
+					        <div *ngIf="submitted && f().extraInfo.errors" class="invalid-feedback">
+                        		<div *ngIf="f().extraInfo.errors.required">This field is required</div>
+                    		</div>
+						</td>
+					</tr>
+					<tr>
+				        <td>
+					    	<div class="form-group right">
+								<button type="button" (click)="onSubmit()" class="btn btn-success">Submit</button>
+							</div>
+						</td>
+						<td>
+					    	<div class="form-group">
+								<button type="reset" routerLink="" class="btn btn-danger">Cancel</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+		    </fieldset>
+		</form>
+	</div>
+</div>
